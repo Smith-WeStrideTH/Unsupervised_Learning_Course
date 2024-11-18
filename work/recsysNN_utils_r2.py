@@ -63,7 +63,7 @@ def pprint_train(x_train, features, vs, u_s, maxcount=5, user=True):
                      x_train[i, 2].astype(float),
                      *x_train[i, 3:].astype(float)
                     ])
-    table = tabulate.tabulate(disp, tablefmt='html', headers="firstrow", floatfmt=flist, numalign='center')
+    table = tabulate.tabulate(disp, tablefmt='github', headers="firstrow", floatfmt=flist, numalign='center')
     return table
 
 
@@ -93,7 +93,7 @@ def print_pred_movies(y_p, item, movie_dict, maxcount=10):
         disp.append([np.around(y_p[i, 0], 1), item[i, 0].astype(int), np.around(item[i, 2].astype(float), 1),
                      movie_dict[movie_id]['title'], movie_dict[movie_id]['genres']])
 
-    table = tabulate.tabulate(disp, tablefmt='html', headers="firstrow")
+    table = tabulate.tabulate(disp, tablefmt='github', headers="firstrow")
     return table
 
 def gen_user_vecs(user_vec, num_items):
@@ -183,5 +183,5 @@ def print_existing_user(y_p, y, user, items, ivs, uvs, movie_dict, maxcount=10):
                          movie_dict[movie_id]['title'],
                          movie_dict[movie_id]['genres']])
 
-    table = tabulate.tabulate(disp, tablefmt='html', headers="firstrow", floatfmt=[".1f", ".1f", ".0f", ".2f", ".1f"])
+    table = tabulate.tabulate(disp, tablefmt='github', headers="firstrow", floatfmt=[".1f", ".1f", ".0f", ".2f", ".1f"])
     return table
